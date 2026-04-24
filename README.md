@@ -17,20 +17,28 @@
 
 ```
 hiro-portfolio/
-├── index.html
-├── css/style.css        # Gulp が生成（直接編集しない）
-├── sass/                # FLOCSS 構成
-│   ├── foundation/      # reset / variables / mixins / base / typography
-│   ├── layout/          # .l-header / .l-footer / .l-container / .l-section
-│   └── object/
-│       ├── component/   # .c-button / .c-section-title / .c-tag / .c-link-stroke
-│       ├── project/     # .p-hero / .p-about / .p-skills / .p-works / ...
-│       └── utility/     # .u-vh / .u-text-*
-├── js/main.js
-├── img/works/           # ダミー画像（後で差し替え）
-├── gulpfile.js          # ビルド設定
-└── package.json
+├── src/                   ← 編集対象はこの中だけ
+│   ├── index.html
+│   ├── sass/              ← FLOCSS 構成
+│   │   ├── foundation/    # reset / variables / mixins / base / typography
+│   │   ├── layout/        # .l-header / .l-footer / .l-container / .l-section
+│   │   └── object/
+│   │       ├── component/ # .c-button / .c-section-title / .c-tag / .c-link-stroke
+│   │       ├── project/   # .p-hero / .p-about / .p-skills / ...
+│   │       └── utility/   # .u-vh / .u-text-*
+│   ├── js/main.js
+│   └── img/works/         # ダミー画像（後で差し替え）
+├── dist/                  ← Gulp が自動生成（触らない・本番公開対象）
+│                            .gitignore で除外済み
+├── gulpfile.js            # ビルド設定
+├── package.json
+└── README.md
 ```
+
+**ルール**:
+- **`src/`** 以下だけを編集する
+- **`dist/`** は触らない（Gulp が自動生成、git 管理外）
+- 本番公開は `dist/` を配信する
 
 ## CSS命名規則（FLOCSS + BEM）
 
@@ -51,10 +59,10 @@ hiro-portfolio/
 # 1. 依存インストール（初回だけ）
 npm install
 
-# 2. 開発サーバー起動（SCSSの変更を監視＋ブラウザ自動リロード）
+# 2. 開発サーバー起動（src/ の変更を監視＋dist/ を配信＋ブラウザ自動リロード）
 npm run dev
 
-# 3. 本番ビルド（一度だけコンパイル）
+# 3. 本番ビルド（dist/ を一度だけ生成）
 npm run build
 ```
 
@@ -64,9 +72,18 @@ npm run build
 
 | コマンド | 処理内容 |
 | --- | --- |
-| `npm run dev` | SCSSコンパイル → autoprefixer適用 → browser-sync起動 → SCSS/HTML/JSを監視 |
-| `npm run build` | 一度だけコンパイル（本番用、ウォッチしない） |
+| `npm run dev` | src/ → dist/ にビルド → browser-sync 起動 → src/ を監視して自動再ビルド |
+| `npm run build` | 一度だけ src/ → dist/ に出力（本番用） |
+
+## デプロイ（Cloudflare Pages）
+
+| 項目 | 値 |
+| --- | --- |
+| Framework preset | None |
+| Build command | `npm run build` |
+| Build output directory | `dist` |
+| Node version（環境変数 NODE_VERSION） | `20` |
 
 ## 差し替え項目
 
-`index.html` 末尾のコメントに差し替え項目の一覧があります。`{{NAME}}`, `{{EMAIL}}` などを一括置換で埋めてください。
+`src/index.html` 末尾のコメントに差し替え項目の一覧があります。`{{NAME}}`, `{{EMAIL}}` などを一括置換で埋めてください。
