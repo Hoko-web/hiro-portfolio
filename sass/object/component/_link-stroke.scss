@@ -1,0 +1,16 @@
+// ============================================================
+// .c-link-stroke：ホバーで文字が中抜き（ストローク）になるリンク
+// ミニマル白黒の "動的" な見せ場として使用
+// ============================================================
+
+@use "../../foundation/mixins" as m;
+
+.c-link-stroke {
+  display: inline-block;
+  transition: color var(--transition-base);
+
+  @include m.hover {
+    color: transparent;
+    -webkit-text-stroke: 1px var(--color-text);
+  }
+}

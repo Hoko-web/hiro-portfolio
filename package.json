@@ -1,0 +1,27 @@
+{
+  "name": "hiro-portfolio",
+  "version": "1.0.0",
+  "description": "ミニマルなポートフォリオサイト（HTML / Sass / バニラJS / Gulp）",
+  "private": true,
+  "scripts": {
+    "dev": "gulp",
+    "build": "gulp build",
+    "sass": "sass sass/style.scss css/style.css --style=expanded"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "browser-sync": "^3.0.2",
+    "gulp": "^5.0.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^10.0.0",
+    "gulp-sass": "^6.0.0",
+    "postcss": "^8.4.38",
+    "sass": "^1.77.0"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "> 0.5%",
+    "not dead",
+    "ios >= 14"
+  ]
+}

@@ -1,0 +1,44 @@
+// ============================================================
+// .p-skills：使える技術の一覧（2カラム or 3カラムのグリッド）
+// ============================================================
+
+@use "../../foundation/mixins" as m;
+
+.p-skills__list {
+  display: grid;
+  gap: 1px; // セル間の1pxギャップを背景色で区切り線として使う
+  background: var(--color-border);
+  border: 1px solid var(--color-border);
+
+  @include m.mq(tb) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include m.mq(pc) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.p-skills__item {
+  background: var(--color-bg);
+  padding: clamp(1.5rem, 3vw, 2rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: background var(--transition-base);
+
+  @include m.hover {
+    background: #fafafa;
+  }
+}
+
+.p-skills__name {
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: var(--tracking-wide);
+}
+
+.p-skills__desc {
+  font-size: 0.875rem;
+  line-height: 1.9;
+  color: var(--color-text-sub);
+}

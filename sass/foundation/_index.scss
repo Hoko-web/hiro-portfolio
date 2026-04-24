@@ -1,0 +1,8 @@
+// foundation 層：プロジェクト全体の基盤
+// 変数・mixin はここで定義し、他層は @use で参照する
+
+@forward "variables";
+@forward "mixins";
+@forward "reset";
+@forward "base";
+@forward "typography";

@@ -1,0 +1,27 @@
+// ============================================================
+// .c-section-title：セクション見出し（英字 + 日本語の2段構成）
+// ============================================================
+
+@use "../../foundation/mixins" as m;
+
+.c-section-title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: clamp(2.5rem, 6vw, 4rem);
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.c-section-title__en {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-text-sub);
+}
+
+.c-section-title__jp {
+  font-family: var(--font-jp);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}

@@ -1,0 +1,96 @@
+// ============================================================
+// .p-hero：ファーストビュー
+// 画面全体を使い、名前・肩書き・キャッチで強く印象づける
+// ============================================================
+
+@use "../../foundation/mixins" as m;
+
+.p-hero {
+  min-height: 100svh;
+  padding-top: var(--header-height);
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+
+  // 背景：極薄のグリッドでミニマルな抑揚をつける
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+}
+
+.p-hero__inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 4vw, 2.5rem);
+  padding-block: clamp(3rem, 10vw, 6rem);
+}
+
+.p-hero__eyebrow {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-text-sub);
+}
+
+.p-hero__heading {
+  font-family: var(--font-jp);
+  font-size: clamp(2.25rem, 7vw, 5rem);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+}
+
+.p-hero__heading-line {
+  display: block;
+
+  // 2行目は少し色を薄める（視覚的なリズム）
+  &:last-child {
+    color: var(--color-text-sub);
+  }
+}
+
+.p-hero__lead {
+  max-width: 640px;
+  font-size: clamp(0.9375rem, 1.6vw, 1.0625rem);
+  color: var(--color-text-sub);
+  line-height: 2;
+}
+
+.p-hero__meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-top: clamp(1.5rem, 4vw, 3rem);
+
+  @include m.mq(tb) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+  }
+}
+
+.p-hero__name {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.p-hero__name-en {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.p-hero__name-jp {
+  font-size: 0.8125rem;
+  color: var(--color-text-sub);
+}

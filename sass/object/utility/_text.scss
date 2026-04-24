@@ -1,0 +1,18 @@
+// ============================================================
+// テキスト整形用のユーティリティ
+// ============================================================
+
+.u-text-center {
+  text-align: center;
+}
+
+.u-text-right {
+  text-align: right;
+}
+
+// 1行表示で溢れたら省略
+.u-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

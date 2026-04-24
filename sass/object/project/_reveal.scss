@@ -1,0 +1,26 @@
+// ============================================================
+// .js-reveal：スクロール連動のフェードイン演出
+// JSが `.is-visible` を付与したら表示、それまでは opacity:0 で隠す
+// ============================================================
+
+@use "../../foundation/mixins" as m;
+
+.js-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+
+  // 表示状態
+  &.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  // アクセシビリティ：モーション削減が有効なら常に表示
+  @include m.reduce-motion {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

@@ -1,0 +1,16 @@
+// ============================================================
+// .p-logo：ヘッダー左のロゴ（テキスト組み）
+// ============================================================
+
+.p-logo {
+  display: inline-flex;
+  align-items: center;
+}
+
+.p-logo__text {
+  font-family: var(--font-en);
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}

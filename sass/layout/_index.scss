@@ -1,0 +1,6 @@
+// layout 層：ページの骨格（ヘッダー/フッター/コンテナ/セクション余白）
+
+@forward "container";
+@forward "section";
+@forward "header";
+@forward "footer";

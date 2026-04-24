@@ -1,0 +1,17 @@
+// ============================================================
+// .p-works：作品グリッド
+// ============================================================
+
+@use "../../foundation/mixins" as m;
+
+.p-works__list {
+  display: grid;
+  gap: clamp(2rem, 4vw, 3rem);
+
+  @include m.mq(tb) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include m.mq(pc) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

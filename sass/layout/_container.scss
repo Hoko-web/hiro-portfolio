@@ -1,0 +1,16 @@
+// ============================================================
+// .l-container：最大幅を揃えるためのラッパー
+// どのセクションもこれで横幅を揃える
+// ============================================================
+
+.l-container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+}
+
+// 少し狭いバリエーション（本文中心のセクション用）
+.l-container--narrow {
+  max-width: 840px;
+}

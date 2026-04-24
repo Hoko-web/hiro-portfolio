@@ -1,0 +1,61 @@
+// ============================================================
+// mixin 集
+// ============================================================
+
+@use "variables" as v;
+
+// モバイルファーストのメディアクエリ
+// 使用例: @include mq(pc) { ... }
+@mixin mq($breakpoint) {
+  @if $breakpoint == tb {
+    @media (min-width: v.$bp-tb) {
+      @content;
+    }
+  } @else if $breakpoint == pc {
+    @media (min-width: v.$bp-pc) {
+      @content;
+    }
+  } @else if $breakpoint == wide {
+    @media (min-width: v.$bp-wide) {
+      @content;
+    }
+  }
+}
+
+// マウスホバー可能なデバイスだけに適用（タッチデバイスでの誤発火防止）
+// 使用例: @include hover { color: red; }
+@mixin hover {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+// アクセシビリティ：モーションを減らしたいユーザー向け
+@mixin reduce-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}
+
+// スクリーンリーダー専用（見た目は隠すがSRには読まれる）
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// フォーカスリング（キーボード操作時のみ）
+@mixin focus-ring {
+  &:focus-visible {
+    outline: 2px solid var(--color-text);
+    outline-offset: 3px;
+  }
+}

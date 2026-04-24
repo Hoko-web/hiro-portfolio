@@ -1,0 +1,48 @@
+// ============================================================
+// .c-button：汎用ボタン
+// 中身の文言・リンク先は知らない。配置は呼び出し側（p-*）に委ねる
+// ============================================================
+
+@use "../../foundation/mixins" as m;
+
+.c-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75em;
+  min-height: 52px;
+  padding: 0 1.75rem;
+  font-family: var(--font-en);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  border: 1px solid var(--color-border-strong);
+  background: var(--color-bg);
+  color: var(--color-text);
+  transition: background var(--transition-base), color var(--transition-base);
+
+  @include m.hover {
+    background: var(--color-reverse-bg);
+    color: var(--color-reverse-text);
+
+    .c-button__arrow {
+      transform: translateX(4px);
+    }
+  }
+}
+
+// 主要CTA：最初から反転色（黒背景・白文字）
+.c-button--primary {
+  background: var(--color-reverse-bg);
+  color: var(--color-reverse-text);
+
+  @include m.hover {
+    background: var(--color-bg);
+    color: var(--color-text);
+  }
+}
+
+.c-button__arrow {
+  display: inline-block;
+  transition: transform var(--transition-base);
+}

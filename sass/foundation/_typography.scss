@@ -1,0 +1,25 @@
+// ============================================================
+// タイポグラフィの基礎
+// 見出しは p-* 側で個別に調整するが、共通のベースはここに置く
+// clamp() を使い、画面幅に応じた流動的なサイズ変化を基本とする
+// ============================================================
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: var(--lh-heading);
+  letter-spacing: var(--tracking-base);
+}
+
+// 英字表記の見出しは Inter を優先
+.is-en {
+  font-family: var(--font-en);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+// 段落内の本文
+p {
+  line-height: var(--lh-base);
+}

@@ -1,0 +1,124 @@
+// ============================================================
+// .p-nav：グローバルナビ
+// SP: ハンバーガーメニュー（全画面オーバーレイ）
+// PC: 横並び
+// ============================================================
+
+@use "../../foundation/mixins" as m;
+
+// ------------------------------------------------------------
+// トグルボタン（ハンバーガー）：SPのみ表示
+// ------------------------------------------------------------
+.p-nav__toggle {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  z-index: calc(var(--z-header) + 1); // オーバーレイより上
+
+  @include m.mq(pc) {
+    display: none;
+  }
+}
+
+.p-nav__toggle-bar {
+  display: block;
+  width: 22px;
+  height: 1px;
+  background: var(--color-text);
+  transition: transform var(--transition-base), opacity var(--transition-base);
+  transform-origin: center;
+}
+
+// 展開時はバツ印に変形
+.p-nav__toggle[aria-expanded="true"] {
+  .p-nav__toggle-bar:nth-child(1) {
+    transform: translateY(3.5px) rotate(45deg);
+  }
+  .p-nav__toggle-bar:nth-child(2) {
+    transform: translateY(-3.5px) rotate(-45deg);
+  }
+}
+
+// ------------------------------------------------------------
+// ナビ本体
+// ------------------------------------------------------------
+.p-nav {
+  // SP: 非表示→トグルで全画面オーバーレイ
+  position: fixed;
+  inset: 0;
+  background: var(--color-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-base), visibility var(--transition-base);
+  z-index: var(--z-header);
+
+  // body.is-nav-open のときに表示
+  .is-nav-open & {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  @include m.mq(pc) {
+    position: static;
+    inset: auto;
+    opacity: 1;
+    visibility: visible;
+    background: transparent;
+    display: block;
+  }
+}
+
+.p-nav__list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+
+  @include m.mq(pc) {
+    flex-direction: row;
+    gap: 2.5rem;
+  }
+}
+
+.p-nav__link {
+  font-family: var(--font-en);
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  transition: color var(--transition-base);
+
+  @include m.mq(pc) {
+    font-size: 0.8125rem;
+  }
+
+  @include m.hover {
+    color: transparent;
+    -webkit-text-stroke: 1px var(--color-text);
+  }
+
+  // 現在閲覧中のセクション（JSで aria-current を付与）
+  &[aria-current="true"] {
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -8px;
+      width: 6px;
+      height: 6px;
+      background: var(--color-text);
+      border-radius: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}

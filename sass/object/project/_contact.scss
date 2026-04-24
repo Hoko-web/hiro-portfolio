@@ -1,0 +1,88 @@
+// ============================================================
+// .p-contact：お問い合わせセクション
+// フォームは置かず、メール + SNS リンクのみ
+// ============================================================
+
+@use "../../foundation/mixins" as m;
+
+.p-contact__lead {
+  font-size: 1rem;
+  line-height: 2;
+  color: var(--color-text-sub);
+  margin-bottom: 2.5rem;
+}
+
+// メインのメールリンク：大きく目立たせる
+.p-contact__mail {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: clamp(1.5rem, 4vw, 2.5rem) 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  transition: color var(--transition-base);
+
+  @include m.hover {
+    .p-contact__mail-address {
+      color: transparent;
+      -webkit-text-stroke: 1px var(--color-text);
+    }
+  }
+}
+
+.p-contact__mail-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-text-sub);
+}
+
+.p-contact__mail-address {
+  font-family: var(--font-en);
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  word-break: break-all;
+  transition: color var(--transition-base);
+}
+
+// SNS リンク
+.p-contact__sns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+.p-contact__sns-link {
+  font-family: var(--font-en);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-sub);
+  transition: color var(--transition-base);
+  position: relative;
+  padding-bottom: 0.25rem;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--color-text);
+    transform: scaleX(0);
+    transform-origin: right center;
+    transition: transform var(--transition-base);
+  }
+
+  @include m.hover {
+    color: var(--color-text);
+
+    &::after {
+      transform: scaleX(1);
+      transform-origin: left center;
+    }
+  }
+}

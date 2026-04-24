@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+
+  <title>{{NAME}} Portfolio ｜ {{TITLE}}</title>
+  <meta name="description" content="{{NAME}}のポートフォリオサイト。セマンティックHTML・保守性の高いCSS設計・コンポーネント指向でフロントエンドを制作します。">
+
+  <!-- OGP -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{NAME}} Portfolio">
+  <meta property="og:description" content="{{NAME}}のポートフォリオサイト。">
+  <meta property="og:image" content="img/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <!-- ============================================================
+       Header
+       ============================================================ -->
+  <header class="l-header js-header">
+    <div class="l-container l-header__inner">
+      <!-- ロゴ：サイト内の起点（トップへスクロール） -->
+      <a class="p-logo" href="#top" aria-label="トップへ戻る">
+        <span class="p-logo__text">{{NAME_EN}}</span>
+      </a>
+
+      <!-- ハンバーガー（SP用）: JSで aria-expanded をトグル -->
+      <button
+        class="p-nav__toggle js-nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="global-nav"
+        aria-label="メニューを開く"
+      >
+        <span class="p-nav__toggle-bar" aria-hidden="true"></span>
+        <span class="p-nav__toggle-bar" aria-hidden="true"></span>
+      </button>
+
+      <!-- グローバルナビ -->
+      <nav class="p-nav" id="global-nav" aria-label="メインナビゲーション">
+        <ul class="p-nav__list">
+          <li class="p-nav__item">
+            <a class="p-nav__link js-nav-link" href="#about">About</a>
+          </li>
+          <li class="p-nav__item">
+            <a class="p-nav__link js-nav-link" href="#skills">Skills</a>
+          </li>
+          <li class="p-nav__item">
+            <a class="p-nav__link js-nav-link" href="#works">Works</a>
+          </li>
+          <li class="p-nav__item">
+            <a class="p-nav__link js-nav-link" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ============================================================
+         Hero
+         ============================================================ -->
+    <section class="p-hero" aria-labelledby="hero-heading">
+      <div class="l-container p-hero__inner">
+        <p class="p-hero__eyebrow is-en js-reveal">Portfolio</p>
+
+        <h1 class="p-hero__heading js-reveal" id="hero-heading">
+          <span class="p-hero__heading-line">{{HERO_CATCH_LINE_1}}</span>
+          <span class="p-hero__heading-line">{{HERO_CATCH_LINE_2}}</span>
+        </h1>
+
+        <p class="p-hero__lead js-reveal">
+          {{HERO_LEAD}}
+        </p>
+
+        <div class="p-hero__meta js-reveal">
+          <p class="p-hero__name">
+            <span class="p-hero__name-en is-en">{{NAME_EN}}</span>
+            <span class="p-hero__name-jp">{{NAME}} / {{TITLE}}</span>
+          </p>
+
+          <a class="c-button c-button--primary js-scroll" href="#contact">
+            <span class="c-button__label">Contact</span>
+            <span class="c-button__arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         About
+         ============================================================ -->
+    <section class="l-section p-about" id="about" aria-labelledby="about-heading">
+      <div class="l-container">
+        <header class="c-section-title js-reveal">
+          <span class="c-section-title__en is-en">About</span>
+          <h2 class="c-section-title__jp" id="about-heading">私について</h2>
+        </header>
+
+        <div class="p-about__body l-container--narrow">
+          <p class="p-about__text js-reveal">
+            {{ABOUT_BODY_1}}
+          </p>
+          <p class="p-about__text js-reveal">
+            {{ABOUT_BODY_2}}
+          </p>
+
+          <dl class="p-about__facts js-reveal">
+            <div class="p-about__fact">
+              <dt class="p-about__fact-term is-en">Base</dt>
+              <dd class="p-about__fact-desc">{{LOCATION}}</dd>
+            </div>
+            <div class="p-about__fact">
+              <dt class="p-about__fact-term is-en">Focus</dt>
+              <dd class="p-about__fact-desc">HTML / CSS / JavaScript によるフロントエンド制作</dd>
+            </div>
+            <div class="p-about__fact">
+              <dt class="p-about__fact-term is-en">Stance</dt>
+              <dd class="p-about__fact-desc">セマンティック・保守性・コンポーネント指向</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         Skills
+         ============================================================ -->
+    <section class="l-section p-skills" id="skills" aria-labelledby="skills-heading">
+      <div class="l-container">
+        <header class="c-section-title js-reveal">
+          <span class="c-section-title__en is-en">Skills</span>
+          <h2 class="c-section-title__jp" id="skills-heading">使える技術</h2>
+        </header>
+
+        <ul class="p-skills__list">
+          <li class="p-skills__item js-reveal">
+            <p class="p-skills__name is-en">HTML</p>
+            <p class="p-skills__desc">
+              セマンティックなマークアップ。見出し階層・landmark・ARIA属性の扱いを意識し、SEOとアクセシビリティに配慮した構造で書きます。
+            </p>
+          </li>
+          <li class="p-skills__item js-reveal">
+            <p class="p-skills__name is-en">CSS / Sass</p>
+            <p class="p-skills__desc">
+              FLOCSS + BEM によるCSS設計。Foundation / Layout / Object の階層で責務を分け、長期的にメンテしやすいスタイルシートを構築します。
+            </p>
+          </li>
+          <li class="p-skills__item js-reveal">
+            <p class="p-skills__name is-en">JavaScript</p>
+            <p class="p-skills__desc">
+              バニラJSで動的挙動を実装。IntersectionObserver / DOM API を中心に、過剰なライブラリ依存を避けたシンプルな設計を好みます。
+            </p>
+          </li>
+          <li class="p-skills__item js-reveal">
+            <p class="p-skills__name is-en">Responsive Design</p>
+            <p class="p-skills__desc">
+              モバイルファーストで SP / TB / PC の3段階に対応。clamp() を活用し、ブレイクポイント間でも破綻しない流動的な設計を行います。
+            </p>
+          </li>
+          <li class="p-skills__item js-reveal">
+            <p class="p-skills__name is-en">Git / GitHub</p>
+            <p class="p-skills__desc">
+              基本的なブランチ運用・Pull Request・コードレビュー対応ができます。コミットメッセージの粒度と意図の明示を意識します。
+            </p>
+          </li>
+          <li class="p-skills__item js-reveal">
+            <p class="p-skills__name is-en">Accessibility</p>
+            <p class="p-skills__desc">
+              キーボード操作・スクリーンリーダー・prefers-reduced-motion など、利用者の状況に応じたフォールバックを考慮した実装を行います。
+            </p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         Works
+         ============================================================ -->
+    <section class="l-section p-works" id="works" aria-labelledby="works-heading">
+      <div class="l-container">
+        <header class="c-section-title js-reveal">
+          <span class="c-section-title__en is-en">Works</span>
+          <h2 class="c-section-title__jp" id="works-heading">制作実績</h2>
+        </header>
+
+        <ul class="p-works__list">
+          <!-- WORK-01-START -->
+          <li class="p-works__item js-reveal">
+            <article class="p-work-card">
+              <a class="p-work-card__link" href="#" aria-label="作品1の詳細を見る">
+                <div class="p-work-card__thumb">
+                  <img
+                    src="img/works/work-01.svg"
+                    alt=""
+                    width="800"
+                    height="600"
+                    loading="lazy"
+                  >
+                </div>
+                <div class="p-work-card__body">
+                  <p class="p-work-card__category is-en">Coming Soon</p>
+                  <h3 class="p-work-card__title">Work Title 01</h3>
+                  <ul class="p-work-card__tags">
+                    <li class="c-tag">HTML</li>
+                    <li class="c-tag">Sass</li>
+                    <li class="c-tag">JavaScript</li>
+                  </ul>
+                </div>
+              </a>
+            </article>
+          </li>
+          <!-- WORK-01-END -->
+
+          <!-- WORK-02-START -->
+          <li class="p-works__item js-reveal">
+            <article class="p-work-card">
+              <a class="p-work-card__link" href="#" aria-label="作品2の詳細を見る">
+                <div class="p-work-card__thumb">
+                  <img
+                    src="img/works/work-02.svg"
+                    alt=""
+                    width="800"
+                    height="600"
+                    loading="lazy"
+                  >
+                </div>
+                <div class="p-work-card__body">
+                  <p class="p-work-card__category is-en">Coming Soon</p>
+                  <h3 class="p-work-card__title">Work Title 02</h3>
+                  <ul class="p-work-card__tags">
+                    <li class="c-tag">HTML</li>
+                    <li class="c-tag">Sass</li>
+                    <li class="c-tag">Responsive</li>
+                  </ul>
+                </div>
+              </a>
+            </article>
+          </li>
+          <!-- WORK-02-END -->
+
+          <!-- WORK-03-START -->
+          <li class="p-works__item js-reveal">
+            <article class="p-work-card">
+              <a class="p-work-card__link" href="#" aria-label="作品3の詳細を見る">
+                <div class="p-work-card__thumb">
+                  <img
+                    src="img/works/work-03.svg"
+                    alt=""
+                    width="800"
+                    height="600"
+                    loading="lazy"
+                  >
+                </div>
+                <div class="p-work-card__body">
+                  <p class="p-work-card__category is-en">Coming Soon</p>
+                  <h3 class="p-work-card__title">Work Title 03</h3>
+                  <ul class="p-work-card__tags">
+                    <li class="c-tag">HTML</li>
+                    <li class="c-tag">JavaScript</li>
+                    <li class="c-tag">A11y</li>
+                  </ul>
+                </div>
+              </a>
+            </article>
+          </li>
+          <!-- WORK-03-END -->
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         Contact
+         ============================================================ -->
+    <section class="l-section p-contact" id="contact" aria-labelledby="contact-heading">
+      <div class="l-container l-container--narrow">
+        <header class="c-section-title js-reveal">
+          <span class="c-section-title__en is-en">Contact</span>
+          <h2 class="c-section-title__jp" id="contact-heading">お問い合わせ</h2>
+        </header>
+
+        <p class="p-contact__lead js-reveal">
+          お仕事のご相談・ご依頼は下記よりお気軽にご連絡ください。<br>
+          通常24時間以内にご返信いたします。
+        </p>
+
+        <a class="p-contact__mail js-reveal" href="mailto:{{EMAIL}}">
+          <span class="p-contact__mail-label is-en">E-mail</span>
+          <span class="p-contact__mail-address">{{EMAIL}}</span>
+        </a>
+
+        <ul class="p-contact__sns js-reveal">
+          <li>
+            <a class="p-contact__sns-link" href="{{GITHUB_URL}}" target="_blank" rel="noopener noreferrer">
+              <span class="is-en">GitHub</span>
+              <span class="u-vh">（新しいタブで開きます）</span>
+            </a>
+          </li>
+          <li>
+            <a class="p-contact__sns-link" href="{{X_URL}}" target="_blank" rel="noopener noreferrer">
+              <span class="is-en">X (Twitter)</span>
+              <span class="u-vh">（新しいタブで開きます）</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       Footer
+       ============================================================ -->
+  <footer class="l-footer">
+    <div class="l-container l-footer__inner">
+      <p class="l-footer__copy">&copy; <span id="copy-year">2026</span> {{NAME_EN}}. All rights reserved.</p>
+      <a class="l-footer__top-link js-scroll" href="#top">Back to Top ↑</a>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       差し替え項目（あとで埋める）:
+       {{NAME}}            名前（日本語）
+       {{NAME_EN}}         名前（英字）
+       {{TITLE}}           肩書き（例: フロントエンド / コーダー）
+       {{HERO_CATCH_LINE_1}}  ヒーローキャッチ1行目
+       {{HERO_CATCH_LINE_2}}  ヒーローキャッチ2行目
+       {{HERO_LEAD}}       ヒーローのリード文
+       {{ABOUT_BODY_1}}    自己紹介1段落目
+       {{ABOUT_BODY_2}}    自己紹介2段落目
+       {{LOCATION}}        拠点（例: 愛知県 / 東京移住予定）
+       {{EMAIL}}           連絡先メール
+       {{GITHUB_URL}}      GitHubプロフィールURL
+       {{X_URL}}           X (Twitter)プロフィールURL
+       img/works/work-0X.svg → 実作品の画像に差し替え
+       ============================================================ -->
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

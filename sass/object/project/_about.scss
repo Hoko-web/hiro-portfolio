@@ -1,0 +1,61 @@
+// ============================================================
+// .p-about：自己紹介セクション
+// ============================================================
+
+@use "../../foundation/mixins" as m;
+
+.p-about__body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.p-about__text {
+  font-size: 1rem;
+  line-height: 2;
+}
+
+// 名前・拠点・フォーカスなどの概要リスト（定義リスト）
+.p-about__facts {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-border);
+
+  @include m.mq(tb) {
+    grid-template-columns: auto 1fr;
+    column-gap: 3rem;
+    row-gap: 1.25rem;
+  }
+}
+
+.p-about__fact {
+  display: contents; // grid の親に直接要素を流す
+
+  // SPでは縦積み
+  @media (max-width: 767.98px) {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--color-border);
+
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+  }
+}
+
+.p-about__fact-term {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-text-sub);
+  padding-top: 0.35rem; // 本文との baseline 調整
+}
+
+.p-about__fact-desc {
+  font-size: 0.9375rem;
+  line-height: 1.8;
+}

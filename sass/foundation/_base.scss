@@ -1,0 +1,44 @@
+// ============================================================
+// 素タグの基本スタイル
+// ============================================================
+
+@use "mixins" as m;
+
+html {
+  font-size: 100%; // 1rem = 16px
+}
+
+body {
+  font-family: var(--font-base);
+  font-size: 1rem;
+  line-height: var(--lh-base);
+  letter-spacing: var(--tracking-base);
+  color: var(--color-text);
+  background: var(--color-bg);
+
+  // ナビ展開中はスクロールロック（SP）
+  &.is-nav-open {
+    overflow: hidden;
+  }
+}
+
+a {
+  transition: color var(--transition-base), opacity var(--transition-base);
+  @include m.focus-ring;
+}
+
+button {
+  @include m.focus-ring;
+}
+
+// 画像はデフォルトで親要素にフィット
+img {
+  width: 100%;
+  object-fit: cover;
+}
+
+// 選択色
+::selection {
+  background: var(--color-text);
+  color: var(--color-bg);
+}

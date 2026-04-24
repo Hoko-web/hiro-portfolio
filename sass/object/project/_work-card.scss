@@ -1,0 +1,69 @@
+// ============================================================
+// .p-work-card：作品カード
+// ============================================================
+
+@use "../../foundation/mixins" as m;
+
+.p-work-card {
+  // カード全体はリンクで包むので、カード自体は枠のみ担当
+}
+
+.p-work-card__link {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: opacity var(--transition-base);
+
+  @include m.hover {
+    .p-work-card__thumb img {
+      transform: scale(1.04);
+    }
+    .p-work-card__title {
+      color: transparent;
+      -webkit-text-stroke: 1px var(--color-text);
+    }
+  }
+}
+
+// サムネイル：16:10 で統一
+.p-work-card__thumb {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  background: #f5f5f5;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+  }
+}
+
+.p-work-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.p-work-card__category {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  color: var(--color-text-sub);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+.p-work-card__title {
+  font-family: var(--font-jp);
+  font-size: 1.125rem;
+  font-weight: 700;
+  transition: color var(--transition-base);
+}
+
+.p-work-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}

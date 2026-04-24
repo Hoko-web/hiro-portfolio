@@ -1,0 +1,6 @@
+// object 層：Component → Project → Utility の順に読み込む
+// （詳細度とオーバーライドの優先順位を意識）
+
+@forward "component";
+@forward "project";
+@forward "utility";

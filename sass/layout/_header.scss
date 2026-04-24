@@ -1,0 +1,27 @@
+// ============================================================
+// .l-header：固定ヘッダー
+// ============================================================
+
+@use "../foundation/mixins" as m;
+
+.l-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: var(--z-header);
+  background: var(--color-bg);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition-base),
+    padding var(--transition-base);
+
+  // スクロール後はボーダーを表示（ページと区切る）
+  &.is-scrolled {
+    border-bottom-color: var(--color-border);
+  }
+}
+
+.l-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height);
+}
