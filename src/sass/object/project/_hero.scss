@@ -40,12 +40,16 @@
   color: var(--color-text-sub);
 }
 
+// 英字キャッチ "Clean HTML, Maintainable CSS." 向け調整
+// foundation/_typography.scss の .is-en（uppercase）を打ち消し、
+// Capitalize のまま Inter で見せる
 .p-hero__heading {
-  font-family: var(--font-jp);
-  font-size: clamp(2.25rem, 7vw, 5rem);
-  font-weight: 700;
-  line-height: 1.25;
-  letter-spacing: 0.02em;
+  font-family: var(--font-en);
+  font-size: clamp(2.5rem, 8.5vw, 5.5rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-transform: none;
 }
 
 .p-hero__heading-line {
